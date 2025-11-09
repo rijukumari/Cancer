@@ -12,7 +12,7 @@ function Navbar() {
         <div className="flex items-center gap-2">
           <img src={logo} alt="img" className="h-10 w-10 object-contain" />
           <h3 className="text-xl font-semibold -ml-3 text-gray-800">
-            Cancer<span>Care</span>
+            Cancer<span className="text">Care</span>
           </h3>
         </div>
         <nav className="hidden md:flex">
@@ -31,35 +31,51 @@ function Navbar() {
             </Link>
           </ul>
         </nav>
-        <button className="btn hidden md:block">Donate</button>
-
-        {/* mobile hamburger */}
-        <button
-          className="md:hidden text-3xl text-gray-700"
-          onClick={() => setOpen(!open)}
-        >
-          {open ? <HiX /> : <HiMenu />}
-        </button>
-        {open && (
-          <div className="md:hidden block bg-white shadow-md w-full text-center py-4">
-            <ul className="space-y-4 text-gray-600 font-medium">
-              <Link to={"/"} onClick={() => setOpen(false)}>
-                Home
-              </Link>
-              <Link to={"/about"} onClick={() => setOpen(false)}>
-                About
-              </Link>
-              <Link to={"/support"} onClick={() => setOpen(false)}>
-                Support
-              </Link>
-              <Link to={"/contact"} onClick={() => setOpen(false)}>
-                Contact
-              </Link>
-            </ul>
-            <button className="btn mt-4">Donate</button>
-          </div>
-        )}
+        <Link to={"/donate"}>
+          <button className="btn hidden md:block">Donate</button>
+        </Link>
       </div>
+
+      {/* mobile hamburger */}
+      <button
+        className="md:hidden text-3xl absolute top-4 right-4 text-gray-700"
+        onClick={() => setOpen(!open)}
+      >
+        {open ? <HiX /> : <HiMenu />}
+      </button>
+      {open && (
+        <div className="md:hidden block bg-white shadow-md w-full text-center py-4">
+          <ul className="space-y-4  text-gray-600 font-medium">
+            <Link to={"/"} onClick={() => setOpen(false)} className="block">
+              Home
+            </Link>
+            <Link
+              to={"/about"}
+              onClick={() => setOpen(false)}
+              className="block"
+            >
+              About
+            </Link>
+            <Link
+              to={"/support"}
+              onClick={() => setOpen(false)}
+              className="block"
+            >
+              Support
+            </Link>
+            <Link
+              to={"/contact"}
+              onClick={() => setOpen(false)}
+              className="block"
+            >
+              Contact
+            </Link>
+          </ul>
+          <Link to={"/donate"}>
+            <button className="btn mt-4">Donate</button>
+          </Link>
+        </div>
+      )}
     </header>
   );
 }
