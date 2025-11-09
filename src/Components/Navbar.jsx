@@ -7,7 +7,7 @@ function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="w-full  bg-white my-2  text-center">
+    <header className="w-full  bg-white my-2  text-center sticky top-0 z-50">
       <div className=" max-w-7xl mx-auto px-6 flex  justify-between items-center ">
         <div className="flex items-center gap-2">
           <img src={logo} alt="img" className="h-10 w-10 object-contain" />
